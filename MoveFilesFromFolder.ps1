@@ -1,6 +1,6 @@
 ﻿#Variablendeklaration
-$ordner = Get-ChildItem -Directory
-$haupt = Get-Location
+$folder = Get-ChildItem -Directory
+$main = Get-Location
 
 #Hauptverarbeitung
 
@@ -12,13 +12,13 @@ foreach ($i in $ordner)
 }
 
 #Variablendeklaration
-$ordner = Get-ChildItem -Directory
+$folder = Get-ChildItem -Directory
 
 #Hauptverarbeitung
 
-foreach ($i in $ordner) 
+foreach ($i in $folder) 
 {
     $a = Get-ChildItem $i
-    Move-Item ($a.FullName) -Destination $haupt
+    Move-Item ($a.FullName) -Destination $main
     Remove-Item $i
 }
