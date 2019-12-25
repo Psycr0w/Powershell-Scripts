@@ -6,6 +6,7 @@ $days = [Math]::Ceiling($difference.TotalDays)+1
 
 1..$days | ForEach-Object {
   $startdate
-  $startdate = $startdate.AddDays(1)
-} |
+  $startdate = $startdate.AddDays(1) `
+ |
   (Where-Object { $_.DayOfWeek -gt 0 -and $_.DayOfWeek -le 2} | Select-Object -Property Date).count()
+}
