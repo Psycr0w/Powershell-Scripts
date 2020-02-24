@@ -9,7 +9,7 @@ choco install 7zip.install
 choco install notepadplusplus.install
 choco install mumble
 choco install cccp
-choco install mpc-hc
+choco install mpc-be
 
 #Programming
 choco install git
