@@ -11,6 +11,11 @@ choco install mumble
 choco install cccp
 choco install mpc-be
 choco install irfanview
+choco install mremoteng
+choco install curl
+choco install dropbox
+choco install windirstat
+
 
 #Programming
 choco install git
@@ -23,3 +28,6 @@ choco install cherrytree
 
 #Gaming
 choco install steam
+
+#Requirements
+choco install javaruntime
