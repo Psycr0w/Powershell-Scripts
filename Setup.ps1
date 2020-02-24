@@ -10,6 +10,7 @@ choco install notepadplusplus.install
 choco install mumble
 choco install cccp
 choco install mpc-be
+choco install irfanview
 
 #Programming
 choco install git
