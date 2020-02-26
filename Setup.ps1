@@ -15,7 +15,7 @@ choco install mremoteng
 choco install curl
 choco install dropbox
 choco install windirstat
-
+choco install greenshot
 
 #Programming
 choco install git
