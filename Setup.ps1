@@ -2,7 +2,7 @@
 
 
 #Utilities
-choco install sumatrapdf -y
+choco install sumatrapdf.install -y
 choco install discord -y
 choco install firefox -y
 choco install 7zip.install -y
