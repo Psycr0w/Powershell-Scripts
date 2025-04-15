@@ -12,7 +12,7 @@ choco install irfanview -y
 choco install nextcloud-client -y
 choco install dropbox -y
 choco install windirstat -y
-choco install greenshot -y
+choco install sharex -y
 choco install steelseries-engine -y
 choco install filezilla -y
 choco install winscp -y
