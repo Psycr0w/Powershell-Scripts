@@ -1,44 +1,32 @@
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+Set-ExecutionPolicy Bypass -Scope Process -Force
+iex "& { $(irm https://community.chocolatey.org/install.ps1) }"
 
+# Define packages
+$utilities = @(
+    'foxitreader', 'firefox', '7zip.install', 'notepadplusplus.install',
+    'cccp', 'mpc-be', 'irfanview', 'nextcloud-client', 'dropbox',
+    'windirstat', 'sharex', 'steelseries-engine', 'filezilla',
+    'winscp', 'localsend', 'mobaxterm', 'cheatengine', 'putty',
+    'rpi-imager', 'razer-synapse-3', 'etcher'
+)
 
-#Utilities
-choco install foxitreader -y
-choco install firefox -y
-choco install 7zip.install -y
-choco install notepadplusplus.install -y
-choco install cccp -y
-choco install mpc-be -y
-choco install irfanview -y
-choco install nextcloud-client -y
-choco install dropbox -y
-choco install windirstat -y
-choco install sharex -y
-choco install steelseries-engine -y
-choco install filezilla -y
-choco install winscp -y
-choco install nextcloud-client -y
-choco install localsend -y
-choco install mobaxterm -y
-choco install cheatengine -y
-choco install putty -y
-choco install rpi-imager -y
-choco install razer-synapse-3 -y
-choco install etcher -y
+$programming = @('git', 'vscode')
+$gaming = @('steam')
+$graphics = @('geforce-game-ready-driver')
+$comms = @('webex', 'discord', 'mumble')
 
-#Programming
-choco install git -y
-choco install vscode -y
+$allPackages = $utilities + $programming + $gaming + $graphics + $comms
 
-#Organisation
+# Install loop with feedback
+foreach ($pkg in $allPackages | Sort-Object -Unique) {
+    Write-Host "Installing $pkg..." -ForegroundColor Cyan
+    choco install $pkg -y --no-progress
 
-#Gaming
-choco install steam -y
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "❌ Failed to install $pkg" -ForegroundColor Red
+    } else {
+        Write-Host "✅ Successfully installed $pkg" -ForegroundColor Green
+    }
+}
 
-
-#graphics
-choco install geforce-game-ready-driver -y
-
-#Comms
-choco install webex -y
-choco install discord -y
-choco install mumble -yx
+Write-Host "\n🎉 All installations attempted. Check above for any failures." -ForegroundColor Yellow
